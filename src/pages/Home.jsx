@@ -1,4 +1,5 @@
 import { AboutSection } from "../components/AboutSection";
+import { ContactSection } from "../components/ContactSection";
 import { HeroSection } from "../components/HeroSection";
 import { Navbar } from "../components/Navbar";
 import { SkillsSection } from "../components/SkillsSection";
@@ -19,6 +20,7 @@ export const Home = () => {
         <HeroSection/>
         <AboutSection/>
         <SkillsSection/>
+        <ContactSection/>
       </main>
     </div>
   );
