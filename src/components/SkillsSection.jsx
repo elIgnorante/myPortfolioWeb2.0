@@ -4,34 +4,36 @@ import { cn } from "@/lib/utils";
 const skills = [
   // Frontend
   { name: "HTML/CSS", level: 90, category: "frontend" },
-  { name: "JavaScript", level: 85, category: "frontend" },
-  { name: "React.js", level: 85, category: "frontend" },
-  { name: "TypeScript", level: 80, category: "frontend" },
-  { name: "Next.js", level: 80, category: "frontend" },
-  { name: "Tailwind CSS", level: 80, category: "frontend" },
+  { name: "JavaScript", level: 70, category: "frontend" },
+  { name: "React.js", level: 70, category: "frontend" },
+  { name: "TypeScript", level: 70, category: "frontend" },
+  { name: "Next.js", level: 50, category: "frontend" },
+  { name: "Tailwind CSS", level: 60, category: "frontend" },
+  { name: "SASS", level: 85, category: "frontend" },
 
   // Backend
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express.js", level: 75, category: "backend" },
-  { name: "MongoDB", level: 70, category: "backend" },
-  { name: "Java", level: 70, category: "backend" },
-  { name: "Spring Boot", level: 65, category: "backend" },
+  { name: "Node.js", level: 60, category: "backend" },
+  { name: "Express.js", level: 60, category: "backend" },
+  { name: "MongoDB", level: 50, category: "backend" },
+  { name: "Java", level: 60, category: "backend" },
+  { name: "Spring Boot", level: 25, category: "backend" },
+  { name: "SQLServer", level: 70, category: "backend" },
 
   //Testing
-  { name: "Testing Libray", level: 80, category: "testing" },
-  { name: "vitest", level: 80, category: "testing" },
+  { name: "Testing Libray", level: 70, category: "testing" },
+  { name: "vitest", level: 70, category: "testing" },
 
 
   // Tools & Others
   { name: "Git/GitHub", level: 80, category: "Tools & Others" },
-  { name: "Docker", level: 50, category: "Tools & Others" },
-  { name: "Figma", level: 70, category: "Tools & Others" },
+  { name: "Docker", level: 20, category: "Tools & Others" },
+  { name: "Figma", level: 60, category: "Tools & Others" },
   { name: "VS Code", level: 85, category: "Tools & Others" },
-  { name: "English (B1)", level: 60, category: "Tools & Others" },
+  { name: "English (B1)", level: 70, category: "Tools & Others" },
 
   // Mobile
-  { name: "React Native", level: 65, category: "mobile" },
-  { name: "Expo", level: 65, category: "mobile" },
+  { name: "React Native", level: 40, category: "mobile" },
+  { name: "Expo", level: 40, category: "mobile" },
 ];
 
 const categories = ["all", "frontend", "backend", "testing", "Tools & Others", "mobile"];

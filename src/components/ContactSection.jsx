@@ -9,24 +9,41 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const form = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    emailjs.sendForm(
+      'YOUR_SERVICE_ID', // Reemplaza con tu Service ID de EmailJS
+      'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID de EmailJS
+      form.current,
+      'YOUR_PUBLIC_KEY' // Reemplaza con tu Public Key de EmailJS
+    )
+    .then((result) => {
       toast({
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
       });
+      form.current.reset();
+    })
+    .catch((error) => {
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    })
+    .finally(() => {
       setIsSubmitting(false);
-    }, 1500);
+    });
   };
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -123,7 +140,7 @@ export const ContactSection = () => {
           >
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            <form ref={form} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
