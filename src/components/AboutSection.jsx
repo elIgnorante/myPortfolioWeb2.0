@@ -26,7 +26,7 @@ export const AboutSection = () => {
             <p className="text-muted-foreground">
               In addition to JavaScript-based backends with Node.js and
               Express.js, I also work with{" "}
-              <strong>Java and Spring Boot</strong> to create scalable backend
+              <strong>Java</strong> to create scalable backend
               services. This combination allows me to explore different
               approaches for developing secure and efficient applications.
             </p>
