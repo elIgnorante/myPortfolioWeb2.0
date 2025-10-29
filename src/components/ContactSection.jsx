@@ -12,6 +12,12 @@ import { useToast } from "@/hooks/use-toast";
 import { useState, useRef } from "react";
 import emailjs from '@emailjs/browser';
 
+//Costantes
+const SERVICE_ID = 'service_lhwgzf1';
+const TEMPLATE_ID = 'template_ij4d9sa';
+const PUBLIC_KEY = '9XQvluXO5Lui5xZWc';
+
+
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,28 +28,28 @@ export const ContactSection = () => {
     setIsSubmitting(true);
 
     emailjs.sendForm(
-      'YOUR_SERVICE_ID', // Reemplaza con tu Service ID de EmailJS
-      'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID de EmailJS
+      SERVICE_ID,
+      TEMPLATE_ID,
       form.current,
-      'YOUR_PUBLIC_KEY' // Reemplaza con tu Public Key de EmailJS
+      PUBLIC_KEY
     )
-    .then((result) => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+      .then((result) => {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        form.current.reset();
+      })
+      .catch((error) => {
+        toast({
+          title: "Error",
+          description: "There was an error sending your message. Please try again.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
-      form.current.reset();
-    })
-    .catch((error) => {
-      toast({
-        title: "Error",
-        description: "There was an error sending your message. Please try again.",
-        variant: "destructive",
-      });
-    })
-    .finally(() => {
-      setIsSubmitting(false);
-    });
   };
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -53,7 +59,7 @@ export const ContactSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Looking for a passionate developer to join your team? I’m eager to contribute with 
+          Looking for a passionate developer to join your team? I’m eager to contribute with
           my skills. Let’s connect!
         </p>
 
@@ -134,13 +140,10 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
+          <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form ref={form} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
